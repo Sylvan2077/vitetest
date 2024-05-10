@@ -30,14 +30,6 @@ export default {
       this.$alert('文件上传失败，请重试', '错误', {
         confirmButtonText: '确定'
       })
-    },
-    beforeRemove(file) {
-      // 如果正在分片上传，则取消分片上传
-      if (file.percentage !== 100) {
-        this.$store.getters.chunkUploadXhr.forEach(item => {
-          item.abort()
-        })
-      }
     }
   }
 }
